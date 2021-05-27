@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for tour in filter.qs %}
+<div style="display: inline-block; padding-top: 10px; padding-left: 100px;">
+    <a href="{% url 'item' tour.pk %}">
+    <figure class="figure">
+        <img src="{{tour.image.url}}" class="figure-img img-fluid rounded" style="width: 600px; height: 400px;">
+        <figcaption class="figure-caption">{{tour.title}} - per cap. {{tour.price}} PLN - {{tour.days}} Days - Flight: {{tour.flightfrom}} -> {{tour.flightto}} </figcaption>
+    </figure>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock content %}

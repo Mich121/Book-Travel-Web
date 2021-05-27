@@ -1,0 +1,5 @@
+.env
+venv/
+
+#warning: unable to access 'venv/': Permission denied fatal: cannot use venv/ as an exclude file --- to solve this problem
+#git config --global core.excludesfile ~/.gitignore

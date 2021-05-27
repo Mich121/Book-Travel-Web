@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="padding-left: 100px;">
+    <div style="display: inline-block;">
+        <img src="{{tour.image.url}}" class="figure-img img-fluid rounded" style="width: 600px; height: 400px;">
+    </div>
+    <div class="card text-white bg-primary mb-3" style="margin-top: 10px; max-width: 24rem; color: white; font-size: 60px; display: inline-block; margin-left: 100px;">
+        <div class="card-header">Informations</div>
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 35px;"><span class="material-icons-outlined" style="font-size: 25px;">paid</span> {{tour.price}} PLN</h5>
+          <h5 class="card-title" style="font-size: 35px;"><span class="material-icons-outlined" style="font-size: 25px;">calendar_today</span> {{tour.days}} Days</h5>
+          <h5 class="card-title" style="font-size: 35px;"><span class="material-icons-outlined" style="font-size: 25px;">flight_takeoff</span> {{tour.flightfrom}}</h5>
+          <h5 class="card-title" style="font-size: 35px;"><span class="material-icons-outlined" style="font-size: 25px;">flight_land</span> {{tour.flightto}}</h5>
+          <h5 class="card-title" style="font-size: 35px;"><span class="material-icons-outlined" style="font-size: 25px;">groups</span> {{tour.owner}}</h5>
+        </div>    
+    </div>
+    <div class="card">
+        <h5 class="card-header">{{tour.title}}</h5>
+        <div class="card-body">
+          <p class="card-text">{{tour.body}}</p>
+          <a href="{% url 'book' tour.id %}" class="btn btn-primary">Book</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
