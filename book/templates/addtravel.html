@@ -3,22 +3,19 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-{% if user.profile.id %}
   <div class="form-group">
-  <form method="POST">
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+    {{form.media}}
     {{form.as_p}}
-    <button type="submit" class="btn btn-primary right">Book</button>
+    <button type="submit" class="btn btn-primary right">Add Travel</button>
   </form>
   </div>
-
+  
   <script>
-    var name = "{{user.id}}";
+    var name = "{{user.travelagency.id}}";
     document.getElementById("id").value = name;
   </script>
-{% else %}
-Add your profile to book tour...
-{% endif %}
 {% else %}
 You are not allowed...
 {% endif %}

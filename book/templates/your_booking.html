@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1 style="color: white; background-color: #DF2935; padding: 10px; text-align: center;">Your booking, there you can edit or delete it</h1>
+    {% for booking in book %}
+        <a href="{% url 'booking_edit' booking.id %}"><button type="button" class="btn btn-warning">Edit</button></a>
+        <a href="{% url 'booking_delete' booking.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+        <button type="button" class="btn btn-outline-primary">{{booking.title}}, {{booking.start_time}}</button>
+        </br></br><hr>
+    {% endfor %}
+
+{% else %}
+    You are not allowed...
+{% endif %}
+
+
+{% endblock %}

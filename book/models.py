@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class TravelAgency(models.Model):
     name = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -32,7 +33,7 @@ class Tour(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    phone = models.IntegerField(max_length=15, null=True, blank=True)
+    phone = models.IntegerField(max_length=12, null=True, blank=True)
     country = models.CharField(max_length=50, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
     street = models.CharField(max_length=50, null=True, blank=True)
@@ -40,3 +41,15 @@ class Profile(models.Model):
     
     def __str__(self):
         return str(self.user)
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    start_time = models.DateTimeField()
+
+    def __str__(self):
+        return self.title + ' | ' + str(self.user)
+
+    @property
+    def get_html_title(self):
+        return self.title + ' | ' + str(self.user)
