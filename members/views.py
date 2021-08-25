@@ -24,5 +24,6 @@ class EditProfilePageView(generic.UpdateView):
     success_url = reverse_lazy('home')
 
     def get_object(self):
-        return Profile.objects.get(user=self.kwargs['id'])
+        user = self.request.user
+        return Profile.objects.get(user=user.id)
 

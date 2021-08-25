@@ -35,7 +35,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     phone = models.IntegerField(max_length=12, null=True, blank=True)
     country = models.CharField(max_length=50, null=True, blank=True)
-    city = models.CharField(max_length=50, null=True, blank=True)
+    city = models.CharField(max_length=50, null=True, blank=True)  
     street = models.CharField(max_length=50, null=True, blank=True)
     housenumber = models.IntegerField(null=True, blank=True)
     

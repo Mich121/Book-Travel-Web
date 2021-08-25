@@ -10,7 +10,6 @@ class Calendar(HTMLCalendar):
 		self.tours = tours
 		self.year = year
 		self.month = month
-		super(Calendar, self).__init__()
 
 	# formats a day as a td
 	# filter events by day

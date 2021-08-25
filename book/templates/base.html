@@ -39,7 +39,7 @@
                 {% endif %}
                 {% if user.profile.id %}
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'edit_profile' user.profile.id %}" style="color: white; padding-left: 20px;"><button type="button" class="btn btn-danger">Edit Profile</button></a>
+                    <a class="nav-link" href="{% url 'edit_profile' %}" style="color: white; padding-left: 20px;"><button type="button" class="btn btn-danger">Edit Profile</button></a>
                   </li> 
                 {% else %}
                   <li class="nav-item">
